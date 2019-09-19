@@ -1,8 +1,9 @@
 import React from 'react';
+import Routes from "../routes/index";
 
 
 export default function App() {
     return (
-        <h1>The Force Awakens!</h1>
+        <Routes/>
     );
 }
