@@ -4,15 +4,15 @@
 
     background:     #222;
     float:          left;
-    height:         60px;
     padding:        8px;
     position:       relative;
     text-align:     left;
     width:          100%;
 
     @media all and (min-width: $breakpointSmall){
-        display: block;
-        height: auto;
+        display:    block;
+        height:     auto;
+        padding:    16px 0px 0px 0px;
     }
 
     

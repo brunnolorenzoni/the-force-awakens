@@ -1,4 +1,4 @@
-@import "../../../styles/breakpoints.scss";
+@import "../../../../styles/breakpoints.scss";
 
 #btn-menu{
     background:     transparent;
@@ -6,9 +6,7 @@
     padding:        5px;
     height:         40px;
     width:          40px;
-    
-    display: inline-block;
-    vertical-align: middle;
+    float:          left;
 
     @media all and (min-width: $breakpointSmall){
         display: none;
