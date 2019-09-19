@@ -1,0 +1,23 @@
+@import "../../../styles/breakpoints.scss";
+
+#btn-menu{
+    background:     transparent;
+    cursor:         pointer;    
+    padding:        5px;
+    height:         40px;
+    width:          40px;
+    
+    display: inline-block;
+    vertical-align: middle;
+
+    @media all and (min-width: $breakpointSmall){
+        display: none;
+    }
+
+
+    svg{
+        color: #fff;
+        height: auto;
+    }
+
+}

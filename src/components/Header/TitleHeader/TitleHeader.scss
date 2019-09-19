@@ -1,0 +1,20 @@
+@import "../../../styles/breakpoints.scss";
+
+#link-title {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 45px);
+
+
+    #main-title {
+        color:          #fff;
+        font-weight:    700;
+        font-size:      20px;
+        text-align:     center;
+        display:        block;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:   32px;
+        }
+    }
+}
