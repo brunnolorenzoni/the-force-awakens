@@ -18,7 +18,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-responsive": "^8.0.1",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "remove-accents": "^0.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

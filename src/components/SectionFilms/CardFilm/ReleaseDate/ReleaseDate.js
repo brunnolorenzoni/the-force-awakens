@@ -2,11 +2,13 @@ import React from 'react';
 
 import "./ReleaseDate.scss"
 
-export default function ReleaseDate() {
+export default function ReleaseDate(props) {
+
+    const { date } = props;
 
     return (
         <div className="release-container">
-            <p className="release-text">Release date: 1977-05-25</p>
+            <p className="release-text">Release date: {date}</p>
         </div>
     )
 }

@@ -2,12 +2,20 @@ import React from 'react';
 
 import "./Synopsis.scss";
 
-export default function Synopsis() {
+export default function Synopsis(props) {
+
+    const { text } = props;
+
+    function formatText(text)
+    {
+        return (text.length > 150) ? (text.substring(0, 100) + "...") : text;
+
+    }
 
     return (
         <div className="synopsis-container">
             <p className="synopsis-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {formatText(text)}
             </p>
         </div>
     )

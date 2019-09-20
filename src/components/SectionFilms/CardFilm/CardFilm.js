@@ -10,19 +10,18 @@ import "./CardFilm.scss";
 
 export default function CardFilm(props) {
 
+    const { title, release_date, opening_crawl, url } = props.item;
 
-    const { item } = props;
-
-    console.log(item)
+    console.log(props.item)
 
     return (
         <article className="card">
-            <Poster />
-            <Title />
-            <ReleaseDate />
-            <Synopsis />
+            <Poster image_name={title}/>
+            <Title title={title}/>
+            <ReleaseDate date={release_date}/>
+            <Synopsis text={opening_crawl}/>
 
-            <MoreDetailsButton />
+            <MoreDetailsButton href={url}/>
 
         </article>
 
