@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=News+Cycle:400,700');
 
+@import "./breakpoints.scss";
+
 *{
     margin:     0;
     padding:    0;
@@ -19,3 +21,15 @@ a {
     color: inherit;
     text-decoration: inherit;
   }
+
+.main-wrapper {
+    display:    block;
+    float:      left;
+    width:      100%;
+    padding:    8px;
+    margin-top: 20px;
+
+    @media all and (min-width: $breakpointSmall){
+        padding:    16px;
+    }
+}

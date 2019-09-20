@@ -1,9 +1,9 @@
   
 import axios from 'axios';
 
-export const getFilms = async(params) => {
+export const getFilms = async(id) => {
 
-    var request = await axios.get('https://swapi.co/api/films/', params)
+    var request = await axios.get('https://swapi.co/api/films/' +  (id || ''))
     .then(function (response) {
         return response;
     })
