@@ -5,7 +5,7 @@ import CardFilm from "./CardFilm/CardFilm";
 import { getFilms } from '../../services/API';
 import { async } from 'q';
 
-import "./SectionFilm.scss";
+import "./SectionFilms.scss";
 
 export default function SectionFilms() {
 
@@ -39,8 +39,6 @@ export default function SectionFilms() {
                 )) : null}
 
             </div>
-
-            
 
         </section>
 

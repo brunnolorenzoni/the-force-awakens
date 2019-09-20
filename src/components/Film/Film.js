@@ -7,7 +7,9 @@ export default function Film(props) {
 
     const { id_film } = props;
 
-    const [film, setFilm] = useState([]);
+    const [film, setFilm] = useState({});
+    const [characters, setCharacters] = useState([]);
+
 
     async function requestFilms()
     {
@@ -15,12 +17,32 @@ export default function Film(props) {
         setFilm(response.data);
     }
 
+
     useEffect(() => {
         requestFilms();
     }, []);
 
 
     return (
-        <h1>{film.title}</h1> 
+
+        <>
+            <div className="header-image">
+                <img className="image" />
+            </div>
+
+            <h1>{film.title}</h1> 
+
+            <p>{film.opening_crawl}</p>
+
+            { 
+                film.characters ? 
+                <section className="section">
+                    
+                </section> : null
+            }
+
+            
+
+        </>
     )
 }
