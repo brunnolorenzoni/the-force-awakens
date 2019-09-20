@@ -8,7 +8,7 @@ export default function Synopsis(props) {
 
     function formatText(text)
     {
-        return (text.length > 150) ? (text.substring(0, 100) + "...") : text;
+        return (text.length > 80) ? (text.substring(0, 80) + "...") : text;
 
     }
 

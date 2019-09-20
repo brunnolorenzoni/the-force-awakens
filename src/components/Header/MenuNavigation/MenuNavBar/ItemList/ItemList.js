@@ -11,10 +11,22 @@ export default function ItemList(props) {
 
     return (
         <li className="item-menu">
-            <Link to={href}>
-                <FontAwesomeIcon className="icon" icon={icon} size="xs" style={{color: color}}/>
-                <span className="text" style={{color: color}}>{text}</span>
-            </Link>
+            {href ? 
+                
+                <Link to={href}>
+                    <FontAwesomeIcon className="icon" icon={icon} size="xs" style={{color: color}}/>
+                    <span className="text" style={{color: color}}>{text}</span>
+                </Link>
+                
+                : 
+                
+                <Link>
+                    <FontAwesomeIcon className="icon" icon={icon} size="xs" style={{color: color}}/>
+                    <span className="text" style={{color: color}}>{text}</span>
+                </Link>
+                
+            }
+        
         </li>
     )
 }

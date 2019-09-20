@@ -14,4 +14,17 @@ export const getFilms = async(id) => {
     return (request);
 }
 
+export const getCharacter = async(id) => {
+
+    var request = await axios.get('https://swapi.co/api/people/' +  (id || ''))
+    .then(function (response) {
+        return response;
+    })
+    .catch(function (error) {
+        return error.response;
+    })
+
+    return (request);
+}
+
 
