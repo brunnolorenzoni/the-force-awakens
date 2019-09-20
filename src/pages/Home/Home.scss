@@ -1,0 +1,13 @@
+@import "../../styles/breakpoints.scss";
+
+
+.main-wrapper {
+    display:    block;
+    float:      left;
+    width:      100%;
+    padding:    8px;
+
+    @media all and (min-width: $breakpointSmall){
+        padding:    16px;
+    }
+}
