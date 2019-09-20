@@ -26,8 +26,4 @@ a {
     display:    block;
     float:      left;
     width:      100%;
-
-    @media all and (min-width: $breakpointSmall){
-        padding:    16px;
-    }
 }

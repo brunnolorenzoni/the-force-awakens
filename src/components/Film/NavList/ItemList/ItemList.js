@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom'
 
-import { getCharacter } from '../../../../services/API';
+import { getInfo } from '../../../../services/API';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -11,32 +11,32 @@ import "./ItemList.scss"
 
 export default function CharactersList(props) {
 
-    const { url } = props;
+    const { url, href, color } = props;
 
-    const [character, setCharacter] = useState({});
+    const [info, setInfo] = useState({});
 
     function getId(url)
     {
         return url.match(/\d+/g).map(Number);
     }
 
-    async function requestChacter(url)
+    async function requestInfo(url)
     {
-        var response = await getCharacter(getId(url));
-        setCharacter(response.data);
+        var response = await getInfo(url);
+        setInfo(response);
     }
 
     useEffect(() => {
-        requestChacter(url)
+        requestInfo(url)
     }, []);
 
     return (
 
         <li className="item">
-            <Link to={"../characters/" + getId(url)}>
-                <button type="button" className="character-btn">
+            <Link to={"../" + href + "/" + getId(url)}>
+                <button type="button" className="character-btn" style={{backgroundColor: color}}>
                     <FontAwesomeIcon className="icon" icon={faPlus} size="xs"/>
-                    <span className="name">{character.name}</span>
+                    <span className="name">{info.name}</span>
                 </button>
             </Link>
         </li>

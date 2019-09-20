@@ -20,7 +20,7 @@ export default function SectionFilms() {
     async function requestFilms()
     {
         var response = await getFilms();
-        setFilms(sortByDate(response.data.results))
+        setFilms(sortByDate(response.results))
     }
 
     useEffect(() => {

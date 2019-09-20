@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import CharactersList from "./CharactersList/CharactersList";
+import NavList from "./NavList/NavList";
 import HeaderImage from "./HeaderImage/HeaderImage";
 import TitleFilm from "./TitleFilm/TitleFilm";
 import ChapterFilm from "./ChapterFilm/ChapterFilm";
@@ -19,7 +19,7 @@ export default function Film(props) {
     async function requestFilms()
     {
         var response = await getFilms(id_film);
-        setFilm(response.data);
+        setFilm(response);
     }
 
     useEffect(() => {
@@ -46,7 +46,39 @@ export default function Film(props) {
                 { 
                     film.characters ? 
                 
-                        <CharactersList characters={film.characters}  /> 
+                        <NavList href="characters" title="Characters" data={film.characters} color="#bf4545"/> 
+                
+                    : null
+                }
+
+                { 
+                    film.starships ? 
+                    
+                    <NavList href="starships" title="Starships" data={film.starships} color="#045b87"/> 
+                
+                    : null
+                }
+
+                { 
+                    film.vehicles ? 
+                    
+                    <NavList href="vehicles" title="Vehicles" data={film.vehicles} color="#9c33ab"/> 
+                    
+                    : null
+                }
+
+                { 
+                    film.planets ? 
+                
+                        <NavList href="planets" title="Planets" data={film.planets} color="#08780e"/> 
+                
+                    : null
+                }
+                
+                { 
+                    film.species ? 
+                
+                        <NavList href="species" title="Species" data={film.species} color="#916119"/> 
                 
                     : null
                 }

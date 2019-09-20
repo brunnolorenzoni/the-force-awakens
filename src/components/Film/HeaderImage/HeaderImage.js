@@ -28,8 +28,8 @@ export default function HeaderImage(props) {
     function setHeight()
     {
 
-        const headerHeight = document.getElementById('header-wrapper').clientHeight;
-        const windowHeight = window.outerHeight;
+        const headerHeight = document.getElementById('header-wrapper').offsetHeight;
+        const windowHeight = window.innerHeight;
 
         setheightContainer(windowHeight - headerHeight);
 

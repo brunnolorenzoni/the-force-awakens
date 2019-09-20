@@ -1,9 +1,15 @@
+@import "../../styles/breakpoints.scss";
+
 .article-film{
     margin-top: 30px;
     padding: 8px;
 
     float: left;
     width: 100%;
+
+    @media all and (min-width: $breakpointSmall){
+        padding:    16px;
+    }
 
     .synopsis{
 
