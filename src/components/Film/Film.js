@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import CharactersList from "./CharactersList/CharactersList";
+
 import { getFilms } from '../../services/API';
 
 
@@ -8,8 +10,6 @@ export default function Film(props) {
     const { id_film } = props;
 
     const [film, setFilm] = useState({});
-    const [characters, setCharacters] = useState([]);
-
 
     async function requestFilms()
     {
@@ -36,13 +36,11 @@ export default function Film(props) {
 
             { 
                 film.characters ? 
-                <section className="section">
-                    
-                </section> : null
+                
+                    <CharactersList characters={film.characters}  /> 
+                
+                : null
             }
-
-            
-
         </>
     )
 }
