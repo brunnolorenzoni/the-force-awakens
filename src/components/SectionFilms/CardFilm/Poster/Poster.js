@@ -1,16 +1,12 @@
 import React from 'react';
-import path from 'path';
 
 import accents from 'remove-accents'; 
-
 
 import "./Poster.scss"
 
 export default function Poster(props) {
 
     const root = 'src/assets/';
-
-    
 
     const { image_name } = props;
 

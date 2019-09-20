@@ -1,0 +1,29 @@
+.item{
+
+    float: left;
+
+    .character-btn{
+        cursor: pointer;
+        padding: 5px 10px;
+        float: left;
+        margin: 5px;
+        color: #000;
+        font-weight: 700;
+        font-size: 14px;
+        background: #edbd51;
+        border-radius: 3px;
+
+        .icon{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 3px;
+        }
+
+        .name{
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+    }
+
+}

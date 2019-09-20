@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 
 import { getCharacter } from '../../../../services/API';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
+import "./ItemList.scss"
 
 export default function CharactersList(props) {
 
@@ -28,9 +32,12 @@ export default function CharactersList(props) {
 
     return (
 
-        <li>
+        <li className="item">
             <Link to={"../characters/" + getId(url)}>
-                {character.name}
+                <button type="button" className="character-btn">
+                    <FontAwesomeIcon className="icon" icon={faPlus} size="xs"/>
+                    <span className="name">{character.name}</span>
+                </button>
             </Link>
         </li>
     )
