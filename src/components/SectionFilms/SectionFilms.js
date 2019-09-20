@@ -28,13 +28,19 @@ export default function SectionFilms() {
     }, []);
 
     return (
-        <section className="section">
+        <section className="section" id="section-film">
 
             <h2 className="section-title">Films</h2>
 
-            {films ? films.map(film => (
-                <CardFilm key={film.episode_id} item={film}></CardFilm>
-            )) : null}
+            <div className="container-cards">
+
+                {films ? films.map(film => (
+                    <CardFilm key={film.episode_id} item={film}></CardFilm>
+                )) : null}
+
+            </div>
+
+            
 
         </section>
 

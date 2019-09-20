@@ -9,7 +9,7 @@ export default function MoreDetailsButton(props) {
 
     function getFilmId(href)
     {
-        const id = href;
+        const id = href.match(/\d+/g).map(Number);;
 
         return "films/" + id;
 
