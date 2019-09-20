@@ -17,11 +17,11 @@ export default function MenuNavBar() {
         <nav id="nav-menu">
             <ul className="list-menu">
                 <ItemList text="Filmes" href="/films" icon={faFilm} color="#ffbb00"></ItemList>
-                <ItemList text="Persoangens" href="/characters" icon={faUser} color="#bf4545"></ItemList>
-                <ItemList text="Naves"  href="/starships" icon={faRocket} color="#045b87"></ItemList>
-                <ItemList text="Veículos" href="/vehicles" icon={faCarSide} color="#9c33ab"></ItemList>
-                <ItemList text="Planetas" href="/planets" icon={faGlobe} color="#08780e"></ItemList>
-                <ItemList text="Espécies" href="/species" icon={faDna} color="#916119"></ItemList>
+                <ItemList text="Persoangens" icon={faUser} color="#bf4545"></ItemList>
+                <ItemList text="Naves" icon={faRocket} color="#045b87"></ItemList>
+                <ItemList text="Veículos" icon={faCarSide} color="#9c33ab"></ItemList>
+                <ItemList text="Planetas" icon={faGlobe} color="#08780e"></ItemList>
+                <ItemList text="Espécies" icon={faDna} color="#916119"></ItemList>
             </ul>
         </nav>
     )
