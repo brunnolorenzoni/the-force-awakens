@@ -22,7 +22,7 @@ export default function Routes() {
                 <Route path="/vehicles/:id?" component={Vehicles} />
                 <Route path="/planets/:id?" component={Planets} />
                 <Route path="/species/:id?" component={Species} />
-                <Route exact path='*' component={PageNotFound}/>
+                <Route component={PageNotFound}/>
             </Switch>
         </BrowserRouter>
     );

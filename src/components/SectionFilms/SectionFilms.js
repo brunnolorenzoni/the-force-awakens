@@ -5,8 +5,6 @@ import CardFilm from "./CardFilm/CardFilm";
 import { getFilms } from '../../services/API';
 import { async } from 'q';
 
-import "./SectionFilms.scss";
-
 export default function SectionFilms() {
 
     const [films, setFilms] = useState([]);

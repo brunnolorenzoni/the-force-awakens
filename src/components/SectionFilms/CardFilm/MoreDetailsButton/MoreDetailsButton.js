@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import "./MoreDetailsButton.scss"
-
 export default function MoreDetailsButton(props) {
 
     const { href } = props

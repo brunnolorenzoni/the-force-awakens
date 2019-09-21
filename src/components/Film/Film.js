@@ -7,8 +7,6 @@ import ChapterFilm from "./ChapterFilm/ChapterFilm";
 
 import { getFilms } from '../../services/API';
 
-import "./Film.scss";
-
 
 export default function Film(props) {
 

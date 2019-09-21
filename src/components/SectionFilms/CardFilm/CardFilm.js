@@ -6,8 +6,6 @@ import ReleaseDate from "./ReleaseDate/ReleaseDate";
 import Synopsis from "./Synopsis/Synopsis";
 import MoreDetailsButton from "./MoreDetailsButton/MoreDetailsButton";
 
-import "./CardFilm.scss";
-
 export default function CardFilm(props) {
 
     const { title, episode_id, release_date, opening_crawl, url } = props.item;

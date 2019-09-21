@@ -1,7 +1,5 @@
 import React from 'react';
 
-import "./ReleaseDate.scss"
-
 export default function ReleaseDate(props) {
 
     const { date } = props;

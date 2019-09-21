@@ -14,8 +14,7 @@ export default function Films(props) {
 
     useEffect(() => {
         setheightHeader(document.getElementById('header-wrapper').offsetHeight);
-    }, [heightHeader]);
-
+    }, []);
 
     return (
         <>

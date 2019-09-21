@@ -2,8 +2,6 @@ import React from 'react';
 
 import ItemList from "./ItemList/ItemList"
 
-import "./NavList.scss";
-
 export default function NavList(props) {
 
    const { color, data, href, title } = props;

@@ -3,13 +3,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-import './MenuButtonHamburguer.scss'
-
 export default function MenuButtonHamburguer(props) {
 
     const { parentListener } = props;
 
-    function handleClick(e){
+    function handleClick(){
 
         parentListener();
 

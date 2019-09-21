@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import "./TitleFilm.scss";
-
 export default function TitleFilm(props) {
 
     const {title} = props
