@@ -1,8 +1,6 @@
 import React from 'react';
 import RomanNumeral from 'js-roman-numerals';
 
-import "./Title.scss";
-
 export default function Title(props) {
 
     const { title, episode } = props;

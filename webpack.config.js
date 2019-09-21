@@ -7,8 +7,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'index_bundle.js',
-        publicPath: ''
+        filename: 'js/index_bundle.js',
     },
     module: {
         rules: [
@@ -21,7 +20,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     { loader: 'css-loader', options: { url: false, sourceMap: true } },
-                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    { loader: 'postcss-loader', options: {sourceMap: true} },
                     { loader: 'sass-loader', options: { sourceMap: true } }
                 ],
             },
@@ -37,7 +36,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "style.css"
+            filename: "css/style.css"
         }),
         new CopyWebpackPlugin([{from: './src/assets/', to: 'assets'}])
     ]

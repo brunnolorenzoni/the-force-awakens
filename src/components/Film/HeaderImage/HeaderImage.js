@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import accents from 'remove-accents'; 
 
-import "./HeaderImage.scss";
-
 export default function HeaderImage(props) {
 
     const { image_name } = props;

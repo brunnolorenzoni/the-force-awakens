@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { enableScroll } from "../../../../../utils/controlScroll";
 
-import "./ItemList.scss"
-
 export default function ItemList(props) {
 
     const {icon, text, href, color, onClick} = props;

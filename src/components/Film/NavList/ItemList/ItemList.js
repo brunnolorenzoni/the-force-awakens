@@ -7,8 +7,6 @@ import { getInfo } from '../../../../services/API';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import "./ItemList.scss"
-
 export default function ItemList(props) {
 
     const { url, href, color } = props;

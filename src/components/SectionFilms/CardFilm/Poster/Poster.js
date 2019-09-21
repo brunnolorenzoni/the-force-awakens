@@ -2,8 +2,6 @@ import React from 'react';
 
 import accents from 'remove-accents'; 
 
-import "./Poster.scss"
-
 export default function Poster(props) {
 
     const { image_name } = props;

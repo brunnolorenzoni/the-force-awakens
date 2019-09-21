@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import "./TitleHeader.scss"
-
 export default function TitleHeader() {
 
 

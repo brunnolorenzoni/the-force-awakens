@@ -1,7 +1,5 @@
 import React from 'react';
 
-import "./Synopsis.scss";
-
 export default function Synopsis(props) {
 
     const { text } = props;
