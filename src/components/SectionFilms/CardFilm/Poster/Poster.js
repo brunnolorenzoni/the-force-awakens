@@ -6,8 +6,6 @@ import "./Poster.scss"
 
 export default function Poster(props) {
 
-    const root = 'src/assets/';
-
     const { image_name } = props;
 
     function formatImageName(image_name)
@@ -15,19 +13,9 @@ export default function Poster(props) {
         return accents.remove(image_name).replace(/ /g, "-").replace(/_/g, "-").trim().toLowerCase();
     }
 
-    function requireImage(image_name){
-
-        try{
-            return require("../../../../assets/" + image_name + ".jpg");
-        } catch (e){
-            return ""
-        }
-
-    }
-
     return (
         <div className="poster-container">
-            <img className="poster-image" src={requireImage(formatImageName(image_name))}/>
+            <img className="poster-image" src={`/assets/${formatImageName(image_name)}.jpg`}/>
         </div>
     )
 }

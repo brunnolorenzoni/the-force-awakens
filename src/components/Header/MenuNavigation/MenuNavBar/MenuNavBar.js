@@ -13,7 +13,7 @@ import { faDna } from '@fortawesome/free-solid-svg-icons'
 
 export default function MenuNavBar(props) {
 
-    const { show } = props;
+    const { show, parentListener } = props;
 
     useEffect(() => {
         console.log(show)
@@ -22,7 +22,7 @@ export default function MenuNavBar(props) {
     return (
         <nav id="nav-menu" className={show ? 'show' : ''}>
             <ul className="list-menu">
-                <ItemList text="Filmes" href="/films" icon={faFilm} color="#ffbb00"></ItemList>
+                <ItemList text="Filmes" onClick={parentListener} href="/films" icon={faFilm} color="#ffbb00"></ItemList>
                 <ItemList text="Persoangens" icon={faUser} color="#bf4545"></ItemList>
                 <ItemList text="Naves" icon={faRocket} color="#045b87"></ItemList>
                 <ItemList text="Veículos" icon={faCarSide} color="#9c33ab"></ItemList>

@@ -9,7 +9,7 @@ export default function MenuButtonHamburguer(props) {
 
     const { parentListener } = props;
 
-    function handleClick(e){
+    function handleClick(){
 
         parentListener();
 

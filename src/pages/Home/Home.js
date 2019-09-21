@@ -9,7 +9,7 @@ export default function Home() {
 
     useEffect(() => {
         setheightHeader(document.getElementById('header-wrapper').offsetHeight);
-    }, [heightHeader]);
+    }, []);
 
 
     return (

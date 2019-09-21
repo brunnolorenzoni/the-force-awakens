@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, './dist'),
         filename: 'index_bundle.js',
-        publicPath: '/'
+        publicPath: ''
     },
     module: {
         rules: [
@@ -16,31 +18,27 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader']
-            },
-            {
-                test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
-                  'file-loader',
-                  {
-                    loader: 'image-webpack-loader',
-                    options: {
-                      bypassOnDebug: true,
-                      disable: true,
-                    },
-                  },
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-loader', options: { url: false, sourceMap: true } },
+                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    { loader: 'sass-loader', options: { sourceMap: true } }
                 ],
-            }
-                  
+            },
         ]
     },
     mode: 'development',
     devServer: {
         historyApiFallback: true,
     },
+    devtool: 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: "style.css"
+        }),
+        new CopyWebpackPlugin([{from: './src/assets/', to: 'assets'}])
     ]
 }

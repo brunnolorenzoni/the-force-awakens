@@ -13,20 +13,10 @@ export default function HeaderImage(props) {
         return accents.remove(image_name).replace(/ /g, "-").replace(/_/g, "-").trim().toLowerCase();
     }
 
-    function requireImage(image_name){
-
-        try{
-            return require("../../../assets/" + image_name + ".jpg");
-        } catch (e){
-            return ""
-        }
-
-    }
-
     return (
 
         <div className="header-image" style={{
-            backgroundImage: "url(" + requireImage(formatImageName(image_name)) + ")",
+            backgroundImage: `url('/assets/${formatImageName(image_name)}.jpg')`,
         }}></div>
     )
 }

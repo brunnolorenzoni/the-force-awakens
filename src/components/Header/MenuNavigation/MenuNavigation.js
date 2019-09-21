@@ -12,7 +12,7 @@ export default function MenuNavigation() {
 
     const [showMenu, setShowMenu] = useState(false)
 
-    function handleClick(message)
+    function handleClick()
     {
         setShowMenu(!showMenu);
         
@@ -31,7 +31,7 @@ export default function MenuNavigation() {
     return (
         <>
             <MenuButtonHamburguer parentListener={handleClick}/>
-            <MenuNavBar show={showMenu}/>
+            <MenuNavBar parentListener={handleClick} show={showMenu}/>
             
         </>
     )
