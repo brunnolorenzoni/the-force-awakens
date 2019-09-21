@@ -20,7 +20,11 @@
 a {
     color: inherit;
     text-decoration: inherit;
-  }
+}
+
+.no-scroll{
+    overflow: hidden;
+}
 
 .main-wrapper {
     display:    block;

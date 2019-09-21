@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ItemList from "./ItemList/ItemList"
 
@@ -11,10 +11,16 @@ import { faCarSide } from '@fortawesome/free-solid-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faDna } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuNavBar() {
+export default function MenuNavBar(props) {
+
+    const { show } = props;
+
+    useEffect(() => {
+        console.log(show)
+    },[]);
 
     return (
-        <nav id="nav-menu">
+        <nav id="nav-menu" className={show ? 'show' : ''}>
             <ul className="list-menu">
                 <ItemList text="Filmes" href="/films" icon={faFilm} color="#ffbb00"></ItemList>
                 <ItemList text="Persoangens" icon={faUser} color="#bf4545"></ItemList>

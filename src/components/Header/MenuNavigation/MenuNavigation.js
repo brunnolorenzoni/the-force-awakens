@@ -1,17 +1,37 @@
 
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-import MenuNavBar from "./MenuNavBar/MenuNavBar"
-import MenuButtonHamburguer from "./MenuButtonHamburguer/MenuButtonHamburguer"
+import MenuNavBar from "./MenuNavBar/MenuNavBar";
+import MenuButtonHamburguer from "./MenuButtonHamburguer/MenuButtonHamburguer";
+
+import { disableScroll, enableScroll } from "../../../utils/controlScroll";
 
 
 export default function MenuNavigation() {
 
+    const [showMenu, setShowMenu] = useState(false)
+
+    function handleClick(message)
+    {
+        setShowMenu(!showMenu);
+        
+    }
+
+    useEffect(() => {
+
+        if(showMenu) {
+            disableScroll();
+        } else {
+            enableScroll();
+        }
+
+    }, [showMenu]);
+
     return (
         <>
-            <MenuButtonHamburguer/>
-            <MenuNavBar/>
+            <MenuButtonHamburguer parentListener={handleClick}/>
+            <MenuNavBar show={showMenu}/>
             
         </>
     )
