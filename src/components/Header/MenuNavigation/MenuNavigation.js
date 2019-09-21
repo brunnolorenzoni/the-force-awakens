@@ -14,17 +14,20 @@ export default function MenuNavigation() {
 
     function handleClick()
     {
-        setShowMenu(!showMenu);
+        if(window.innerWidth < 768){
+            setShowMenu(!showMenu);
+        }
         
     }
 
     useEffect(() => {
-
+        
         if(showMenu) {
             disableScroll();
         } else {
             enableScroll();
         }
+        
 
     }, [showMenu]);
 

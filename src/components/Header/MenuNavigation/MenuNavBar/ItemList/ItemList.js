@@ -11,7 +11,9 @@ export default function ItemList(props) {
 
     const handleClick = () => {
         onClick();
-        enableScroll();
+        if(window.innerWidth < 768){
+            enableScroll();
+        }
     };
 
     return (
