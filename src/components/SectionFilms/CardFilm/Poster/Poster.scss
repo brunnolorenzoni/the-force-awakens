@@ -11,7 +11,7 @@
         height:         180px;
         width:          100%;
         object-fit:     cover;
-        object-position: top;
+        object-position: center;
 
         @media all and (min-width: $breakpointSmall){
             height:         250px;
