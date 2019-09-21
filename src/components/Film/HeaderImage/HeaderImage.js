@@ -6,8 +6,6 @@ import "./HeaderImage.scss";
 
 export default function HeaderImage(props) {
 
-    const [heightContainer, setheightContainer] = useState(0);
-
     const { image_name } = props;
 
     function formatImageName(image_name)
@@ -24,20 +22,6 @@ export default function HeaderImage(props) {
         }
 
     }
-
-    function setHeight()
-    {
-
-        const headerHeight = document.getElementById('header-wrapper').offsetHeight;
-        const windowHeight = window.innerHeight;
-
-        setheightContainer(windowHeight - headerHeight);
-
-    }
-
-    useEffect(() => {
-        setHeight();
-    }, []);
 
     return (
 

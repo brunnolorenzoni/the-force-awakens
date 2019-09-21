@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from "../../components/Header/Header";
 import SectionFilms from "../../components/SectionFilms/SectionFilms";
@@ -10,6 +10,13 @@ export default function Films(props) {
 
     const hasIdFilm = props.match.params.id;
 
+    const [heightHeader, setheightHeader] = useState(0);
+
+    useEffect(() => {
+        console.log("oi")
+        setheightHeader(document.getElementById('header-wrapper').offsetHeight);
+    }, []);
+
 
     return (
         <>
@@ -18,13 +25,13 @@ export default function Films(props) {
             {
                 hasIdFilm ? 
 
-                <main className="main-wrapper">
+                <main className="main-wrapper" style={{paddingTop: heightHeader}}>
                     <Film id_film={hasIdFilm} /> 
                 </main>
                 
                 : 
 
-                <main className="main-wrapper">
+                <main className="main-wrapper" style={{paddingTop: heightHeader}}>
                     <SectionFilms/>
                 </main>
             }

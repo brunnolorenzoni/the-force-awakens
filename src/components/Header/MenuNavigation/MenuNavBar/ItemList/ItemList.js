@@ -20,10 +20,10 @@ export default function ItemList(props) {
                 
                 : 
                 
-                <Link>
+                <a>
                     <FontAwesomeIcon className="icon" icon={icon} size="xs" style={{color: color}}/>
                     <span className="text" style={{color: color}}>{text}</span>
-                </Link>
+                </a>
                 
             }
         
