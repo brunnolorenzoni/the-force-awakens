@@ -30,13 +30,22 @@ export default function ItemList(props) {
 
     return (
 
-        <li className="item">
-            <Link to={"../" + href + "/" + getId(url)}>
-                <button type="button" className="character-btn" style={{backgroundColor: color}}>
-                    <FontAwesomeIcon className="icon" icon={faPlus} size="xs"/>
-                    <span className="name">{info.name}</span>
-                </button>
-            </Link>
-        </li>
+        <>
+            { info.name ? 
+
+                <li className="item">
+                    <Link to={"../" + href + "/" + getId(url)}>
+                        <button type="button" className="character-btn" style={{backgroundColor: color}}>
+                            <FontAwesomeIcon className="icon" icon={faPlus} size="xs"/>
+                            <span className="name">{info.name}</span>
+                        </button>
+                    </Link>
+                </li>
+
+                : null
+
+            }
+        </>
+        
     )
 }
