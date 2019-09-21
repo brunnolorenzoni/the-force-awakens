@@ -30,8 +30,6 @@ export default function SectionFilms() {
     return (
         <section className="section" id="section-film">
 
-            <h2 className="section-title">Films</h2>
-
             <div className="container-cards">
 
                 {films ? films.map(film => (

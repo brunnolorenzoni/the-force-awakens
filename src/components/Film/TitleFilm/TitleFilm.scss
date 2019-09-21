@@ -1,6 +1,19 @@
+@import "../../../styles/breakpoints.scss";
+
+
 .article-film{
+
+    text-align: center;
+    
     .title-film {
         font-size: 32px;
         margin-bottom: 3px;
+        text-align: center;
+
+        font-family: "News Cycle", sans-serif;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:    48px;
+        }
     }
 }

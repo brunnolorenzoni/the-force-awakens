@@ -1,5 +1,14 @@
+@import "../../../styles/breakpoints.scss";
+
 .article-film{
+
     .chapter-film {
         font-size: 14px;
+
+        font-family: "News Cycle", sans-serif;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:    22px;
+        }
     }
 }

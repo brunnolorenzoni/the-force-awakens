@@ -7,20 +7,6 @@
     float: left;
     padding: 8px;
 
-    .section-title{
-        display:        block;
-        color:          #000;
-        font-size:      26px;
-        float:          left;
-        margin-bottom:  10px;
-        text-align:     center;
-        width:          100%;
-
-        @media all and (min-width: $breakpointSmall){
-            font-size:  36px;
-        }
-    }
-
     .container-cards
     {
         width: 100%;

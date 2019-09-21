@@ -41,8 +41,8 @@ export default function HeaderImage(props) {
 
     return (
 
-        <div className="header-image" style={{height: heightContainer}}>
-            <img className="image" src={requireImage(formatImageName(image_name))} />
-        </div>
+        <div className="header-image" style={{
+            backgroundImage: "url(" + requireImage(formatImageName(image_name)) + ")",
+        }}></div>
     )
 }
