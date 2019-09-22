@@ -7,7 +7,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, './dist'),
-        filename:   'js/index_bundle.js',
+        filename:   './js/index_bundle.js',
+        publicPath: '/',  
     },
     module: {
         rules: [
@@ -38,7 +39,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "css/style.css"
+            filename: "./css/style.css"
         }),
         new CopyWebpackPlugin([{from: './src/assets/', to: 'assets'}])
     ]

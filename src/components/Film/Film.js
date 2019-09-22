@@ -9,16 +9,16 @@ import { getFilms, getInfo } from '../../services/API';
 
 import { setFilms } from '../../store/actions/films';
 import { addCharacters } from '../../store/actions/characters';
-import { addPlanet } from '../../store/actions/planets';
-import { addSpecie } from '../../store/actions/species';
-import { addStarship } from '../../store/actions/starships';
-import { addVehicle } from '../../store/actions/vehicles';
+import { addPlanets } from '../../store/actions/planets';
+import { addSpecies } from '../../store/actions/species';
+import { addStarships } from '../../store/actions/starships';
+import { addVehicles } from '../../store/actions/vehicles';
 
 import { connect } from 'react-redux';
 
 const Film = (props) => {
 
-    const { id_film, storeFilms, storeCharacters, addCharacters, storePlanets, addPlanet, storeSpecies, addSpecie, storeStarships, addStarship, storeVehicles, addVehicle } = props;
+    const { id_film, storeFilms, setFilms, storeCharacters, addCharacters, storePlanets, addPlanets, storeSpecies, addSpecies, storeStarships, addStarships, storeVehicles, addVehicles } = props;
 
     const [currentFilm, setCurrentFilm] = useState();
 
@@ -42,14 +42,55 @@ const Film = (props) => {
         return characters;
     }
 
+    const filterPlanets = (id_film) => {
+
+        let planets = currentFilm.planets.map(planetCurrentFilm => {
+            let idPlanets = getId(planetCurrentFilm);
+            return storePlanets.find(planet => planet.id === idPlanets);
+        })
+
+        return planets;
+    }
+    
+    const fitlerSpecies = (id_film) => {
+
+        let species = currentFilm.species.map(specieCurrentFilm => {
+            let idSpecie = getId(specieCurrentFilm);
+            return storeSpecies.find(specie => specie.id === idSpecie);
+        })
+
+        return species;
+    }
+
+    const fitlerStarships = (id_film) => {
+
+        let starships = currentFilm.starships.map(starshipCurrentFilm => {
+            let idStarship = getId(starshipCurrentFilm);
+            return storeStarships.find(starship => starship.id === idStarship);
+        })
+
+        return starships;
+    }
+
+    const fitlerVehicles = (id_film) => {
+
+        let vehicles = currentFilm.vehicles.map(vehicleCurrentFilm => {
+            let idVehicle = getId(vehicleCurrentFilm);
+            return storeVehicles.find(vehicle => vehicle.id === idVehicle);
+        })
+
+        return vehicles;
+    }
+
     const requestFilm = () => {
         getFilms().then(response => {
             setFilms(response);
             setCurrentFilm(response.find(res => getId(res.url) === parseInt(id_film)))
         });
     }
+    
 
-    const requestFilmData = () => {
+    const requestCharacters = () => {
 
         let characters = currentFilm.characters;
 
@@ -71,6 +112,116 @@ const Film = (props) => {
                 return { ...character, id: getId(character.url) }
             })); 
         });
+
+    }
+
+    const requestPlanets = () => {
+
+        let planets = currentFilm.planets;
+
+        if(storePlanets.length){
+
+            planets = [];
+
+            currentFilm.planets.map(filmPlanet => {
+                let idPlanet = getId(filmPlanet);
+                let exist = storePlanets.find(planet => planet.id === idPlanet);
+                if(!exist){ planets.push(filmPlanet) }
+            });
+
+        }
+
+        const planetsRequest = planets.map(entry => getInfo(entry));
+        Promise.all(planetsRequest).then(response => { 
+            addPlanets(response.map(planet => {
+                return { ...planet, id: getId(planet.url) }
+            })); 
+        });
+
+    }
+
+    const requestSpecies = () => {
+
+        let species = currentFilm.species;
+
+        if(storeSpecies.length){
+
+            species = [];
+
+            currentFilm.species.map(filmSpecie => {
+                let idSpecie = getId(filmSpecie);
+                let exist = storeSpecies.find(specie => specie.id === idSpecie);
+                if(!exist){ species.push(filmSpecie) }
+            });
+
+        }
+
+        const speciesRequest = species.map(entry => getInfo(entry));
+        Promise.all(speciesRequest).then(response => { 
+            addSpecies(response.map(specie => {
+                return { ...specie, id: getId(specie.url) }
+            })); 
+        });
+
+    }
+
+    const requestStarships = () => {
+
+        let starships = currentFilm.starships;
+
+        if(storeStarships.length){
+
+            starships = [];
+
+            currentFilm.starships.map(filmStarship => {
+                let idStarship = getId(filmStarship);
+                let exist = storeStarships.find(starship => starship.id === idStarship);
+                if(!exist){ starships.push(filmStarship) }
+            });
+
+        }
+
+        const starshipsRequest = starships.map(entry => getInfo(entry));
+        Promise.all(starshipsRequest).then(response => { 
+            addStarships(response.map(starship => {
+                return { ...starship, id: getId(starship.url) }
+            })); 
+        });
+
+    }
+
+    const requestVehicles = () => {
+
+        let vehicles = currentFilm.vehicles;
+
+        if(storeVehicles.length){
+
+            vehicles = [];
+
+            currentFilm.vehicles.map(filmVehicle => {
+                let idVehicle = getId(filmVehicle);
+                let exist = storeVehicles.find(vehicle => vehicle.id === idVehicle);
+                if(!exist){ vehicles.push(filmVehicle) }
+            });
+
+        }
+
+        const vehiclesRequest = vehicles.map(entry => getInfo(entry));
+        Promise.all(vehiclesRequest).then(response => { 
+            addVehicles(response.map(vehicle => {
+                return { ...vehicle, id: getId(vehicle.url) }
+            })); 
+        });
+
+    }
+
+    const requestFilmData = () => {
+
+        requestCharacters();
+        requestPlanets();
+        requestSpecies();
+        requestStarships();
+        requestVehicles();
         
     }  
 
@@ -98,6 +249,29 @@ const Film = (props) => {
         }
     }, [storeCharacters])
 
+    useEffect(() => {
+        if(storePlanets.length && currentFilm){
+            setCurrentPlanets(filterPlanets(id_film));
+        }
+    }, [storePlanets])
+
+    useEffect(() => {
+        if(storeSpecies.length && currentFilm){
+            setCurrentSpecies(fitlerSpecies(id_film));
+        }
+    }, [storeSpecies])
+    
+    useEffect(() => {
+        if(storeStarships.length && currentFilm){
+            setCurrentStarships(fitlerStarships(id_film));
+        }
+    }, [storeStarships])
+
+    useEffect(() => {
+        if(storeVehicles.length && currentFilm){
+            setCurrentVehicles(fitlerVehicles(id_film));
+        }
+    }, [storeVehicles])
 
     return (
 
@@ -128,7 +302,7 @@ const Film = (props) => {
                     { 
                         currentPlanets.length ? 
                     
-                            <NavList href="planets" title="Planets" data={storePlanets} color="#08780e"/> 
+                            <NavList href="planets" title="Planets" data={currentPlanets} color="#08780e"/> 
                     
                         : null
                     }
@@ -136,7 +310,7 @@ const Film = (props) => {
                     { 
                         currentSpecies.length ? 
                     
-                            <NavList href="species" title="Species" data={storeSpecies} color="#916119"/> 
+                            <NavList href="species" title="Species" data={currentSpecies} color="#916119"/> 
                     
                         : null
                     }
@@ -144,7 +318,7 @@ const Film = (props) => {
                     { 
                         currentStarships.length ? 
                         
-                        <NavList href="starships" title="Starships" data={storeStarships} color="#045b87"/> 
+                        <NavList href="starships" title="Starships" data={currentStarships} color="#045b87"/> 
                     
                         : null
                     }
@@ -152,7 +326,7 @@ const Film = (props) => {
                     { 
                         currentVehicles.length ? 
                         
-                        <NavList href="vehicles" title="Vehicles" data={storeVehicles} color="#9c33ab"/> 
+                        <NavList href="vehicles" title="Vehicles" data={currentVehicles} color="#9c33ab"/> 
                         
                         : null
                     }
@@ -179,7 +353,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-        setFilms: (films) => dispatch(setFilms(films)),
+        setFilms: (films) => { dispatch(setFilms(films)) },
         addCharacters: (characters) => { dispatch(addCharacters(characters)) } ,
         addPlanets: (planets) => { dispatch(addPlanets(planets)) }, 
         addSpecies: (species) => { dispatch(addSpecies(species)) }, 
