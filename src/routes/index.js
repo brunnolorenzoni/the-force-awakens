@@ -11,7 +11,7 @@ import Species from "../pages/Species/Species";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 
 
-export default function Routes() {
+const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
@@ -26,4 +26,6 @@ export default function Routes() {
             </Switch>
         </BrowserRouter>
     );
-  }
+}
+
+export default Routes;

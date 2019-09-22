@@ -5,8 +5,7 @@ import SectionFilms from "../../components/SectionFilms/SectionFilms";
 import Film from "../../components/Film/Film";
 
 
-export default function Films(props) {
-
+ const Films = (props) => {
 
     const hasIdFilm = props.match.params.id;
 
@@ -36,3 +35,5 @@ export default function Films(props) {
         </>
     )
 }
+
+export default Films;

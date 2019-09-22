@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default function Planets() {
+const Planets = () => {
 
     return (
-        <h1>Planets!</h1>
+        <></>
     )
 }
+
+export default Planets();
