@@ -3,19 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default function MoreDetailsButton(props) {
 
-    const { href } = props
-
-    function getFilmId(href)
-    {
-        const id = href.match(/\d+/g).map(Number);
-
-        return "films/" + id;
-
-    }
+    const { id } = props
 
     return (
         <div className="btn-container">
-            <Link to={getFilmId(href)}>
+            <Link to={'films/' + id}>
                 <button type="button" className="btn-details">
                     More Details
                 </button>

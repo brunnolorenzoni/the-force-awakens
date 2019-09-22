@@ -8,7 +8,9 @@ import MoreDetailsButton from "./MoreDetailsButton/MoreDetailsButton";
 
 export default function CardFilm(props) {
 
-    const { title, episode_id, release_date, opening_crawl, url } = props.item;
+    const { id } = props;
+    const { title, episode_id, release_date, opening_crawl } = props.item;
+
 
     return (
         <article className="card">
@@ -17,7 +19,7 @@ export default function CardFilm(props) {
             <ReleaseDate date={release_date}/>
             <Synopsis text={opening_crawl}/>
 
-            <MoreDetailsButton href={url}/>
+            <MoreDetailsButton id={id}/>
 
         </article>
 

@@ -15,7 +15,7 @@ export default function NavList(props) {
 
                 {
                     data.map((item, index) => (
-                        <ItemList key={index} url={item} href={href} color={color}/>
+                        <ItemList key={index} id={item.id} text={item.name} href={href} color={color}/>
                     ))
                 }
 

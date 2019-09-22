@@ -5,81 +5,155 @@ import HeaderImage from "./HeaderImage/HeaderImage";
 import TitleFilm from "./TitleFilm/TitleFilm";
 import ChapterFilm from "./ChapterFilm/ChapterFilm";
 
-import { getFilms } from '../../services/API';
+import { getFilms, getInfo } from '../../services/API';
 
+import { setFilms } from '../../store/actions/films';
+import { addCharacters } from '../../store/actions/characters';
+import { addPlanet } from '../../store/actions/planets';
+import { addSpecie } from '../../store/actions/species';
+import { addStarship } from '../../store/actions/starships';
+import { addVehicle } from '../../store/actions/vehicles';
 
-export default function Film(props) {
+import { connect } from 'react-redux';
 
-    const { id_film, height } = props;
+const Film = (props) => {
 
-    const [film, setFilm] = useState({});
+    const { id_film, storeFilms, storeCharacters, addCharacters, storePlanets, addPlanet, storeSpecies, addSpecie, storeStarships, addStarship, storeVehicles, addVehicle } = props;
 
-    async function requestFilms()
-    {
-        var response = await getFilms(id_film);
-        setFilm(response);
+    const [currentFilm, setCurrentFilm] = useState();
+
+    const [currentCharacters, setCurrentCharacters] = useState([]);
+    const [currentPlanets, setCurrentPlanets] = useState([]);
+    const [currentSpecies, setCurrentSpecies] = useState([]);
+    const [currentStarships, setCurrentStarships] = useState([]);
+    const [currentVehicles, setCurrentVehicles] = useState([]);
+
+    const getId = (url) => {
+        return parseInt(url.match(/\d+/g).map(Number)[0]);
+    };
+
+    const filterCharacters = (id_film) => {
+
+        let characters = currentFilm.characters.map(characterCurrentFilm => {
+            let idCharacter = getId(characterCurrentFilm);
+            return storeCharacters.find(character => character.id === idCharacter);
+        })
+
+        return characters;
     }
 
+    const requestFilm = () => {
+        getFilms().then(response => {
+            setFilms(response);
+            setCurrentFilm(response.find(res => getId(res.url) === parseInt(id_film)))
+        });
+    }
+
+    const requestFilmData = () => {
+
+        let characters = currentFilm.characters;
+
+        if(storeCharacters.length){
+
+            characters = [];
+
+            currentFilm.characters.map(filmCharacter => {
+                let idCharacter = getId(filmCharacter);
+                let exist = storeCharacters.find(character => character.id === idCharacter);
+                if(!exist){ characters.push(filmCharacter) }
+            });
+
+        }
+
+        const charactersRequests = characters.map(entry => getInfo(entry));
+        Promise.all(charactersRequests).then(response => { 
+            addCharacters(response.map(character => {
+                return { ...character, id: getId(character.url) }
+            })); 
+        });
+        
+    }  
+
     useEffect(() => {
-        requestFilms();
+
+        const filmFound = storeFilms.find(film => getId(film.url) === parseInt(id_film));
+
+        if(filmFound){
+            setCurrentFilm(filmFound)
+        } else {
+            requestFilm();
+        }
+
     }, []);
+
+    useEffect(() => {
+        if(currentFilm){
+            requestFilmData();
+        }
+    }, [currentFilm]);
+
+    useEffect(() => {
+        if(storeCharacters.length && currentFilm){
+            setCurrentCharacters(filterCharacters(id_film));
+        }
+    }, [storeCharacters])
 
 
     return (
 
         <>
-            { film.title ? 
+            { currentFilm ? 
 
-                <HeaderImage image_name={film.title}/> : null
+                <HeaderImage image_name={currentFilm.title}/> : null
 
             }
 
             <article className="article-film">
 
-                { film.title ?  <TitleFilm title={film.title}/> : null }
-                { film.episode_id ?  <ChapterFilm episode_id={film.episode_id}/> : null }
+                { currentFilm ?  <TitleFilm title={currentFilm.title}/> : null }
+                { currentFilm ?  <ChapterFilm episode_id={currentFilm.episode_id}/> : null }
 
-                { film.opening_crawl ?  <p className="synopsis">{film.opening_crawl}</p> : null }
+                { currentFilm ?  <p className="synopsis">{currentFilm.opening_crawl}</p> : null }
 
                 <section className="nav-section">
                     
                     { 
-                        film.characters ? 
+                        currentCharacters.length ? 
                     
-                            <NavList href="characters" title="Characters" data={film.characters} color="#bf4545"/> 
-                    
-                        : null
-                    }
-
-                    { 
-                        film.starships ? 
-                        
-                        <NavList href="starships" title="Starships" data={film.starships} color="#045b87"/> 
+                            <NavList href="characters" title="Characters" data={currentCharacters} color="#bf4545"/> 
                     
                         : null
                     }
 
                     { 
-                        film.vehicles ? 
-                        
-                        <NavList href="vehicles" title="Vehicles" data={film.vehicles} color="#9c33ab"/> 
-                        
+                        currentPlanets.length ? 
+                    
+                            <NavList href="planets" title="Planets" data={storePlanets} color="#08780e"/> 
+                    
+                        : null
+                    }
+                    
+                    { 
+                        currentSpecies.length ? 
+                    
+                            <NavList href="species" title="Species" data={storeSpecies} color="#916119"/> 
+                    
                         : null
                     }
 
                     { 
-                        film.planets ? 
-                    
-                            <NavList href="planets" title="Planets" data={film.planets} color="#08780e"/> 
+                        currentStarships.length ? 
+                        
+                        <NavList href="starships" title="Starships" data={storeStarships} color="#045b87"/> 
                     
                         : null
                     }
-                    
+
                     { 
-                        film.species ? 
-                    
-                            <NavList href="species" title="Species" data={film.species} color="#916119"/> 
-                    
+                        currentVehicles.length ? 
+                        
+                        <NavList href="vehicles" title="Vehicles" data={storeVehicles} color="#9c33ab"/> 
+                        
                         : null
                     }
 
@@ -87,10 +161,32 @@ export default function Film(props) {
 
 
             </article>
-
-
-
             
         </>
     )
 }
+
+const mapStateToProps = (state) => {
+    return { 
+        storeFilms:      state.films,
+        storeCharacters: state.characters, 
+        storePlanets:    state.planets,
+        storeSpecies:    state.species,
+        storeStarships:  state.starships,
+        storeVehicles:   state.vehicles,
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+        setFilms: (films) => dispatch(setFilms(films)),
+        addCharacters: (characters) => { dispatch(addCharacters(characters)) } ,
+        addPlanets: (planets) => { dispatch(addPlanets(planets)) }, 
+        addSpecies: (species) => { dispatch(addSpecies(species)) }, 
+        addStarships: (starships) => { dispatch(addStarships(starships)) }, 
+        addVehicles: (vehicles) => { dispatch(addVehicles(vehicles)) }, 
+    };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Film);

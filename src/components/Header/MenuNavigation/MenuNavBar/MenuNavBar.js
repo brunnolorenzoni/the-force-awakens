@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import ItemList from "./ItemList/ItemList"
 
@@ -12,10 +12,6 @@ import { faDna } from '@fortawesome/free-solid-svg-icons'
 export default function MenuNavBar(props) {
 
     const { show, parentListener } = props;
-
-    useEffect(() => {
-        console.log(show)
-    },[]);
 
     return (
         <nav id="nav-menu" className={show ? 'show' : ''}>

@@ -1,28 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
+import { setFilms } from '../../store/actions/films';
+import { connect } from 'react-redux';
+
 import CardFilm from "./CardFilm/CardFilm";
 
 import { getFilms } from '../../services/API';
-import { async } from 'q';
 
-export default function SectionFilms() {
 
-    const [films, setFilms] = useState([]);
+const SectionFilms = (props) => {
 
+    const { storeFilms, setFilms } = props;
 
     function sortByDate (data)
     {
         return data.sort((a,b) => (new Date(a.release_date) > new Date(b.release_date)) ? 1 : ((new Date(b.release_date) > new Date(a.release_date)) ? -1 : 0)); 
     }
 
-    async function requestFilms()
+    function requestFilms()
     {
-        var response = await getFilms();
-        setFilms(sortByDate(response.results))
+        getFilms().then( response => {
+            setFilms(sortByDate(response))
+        });
+
     }
 
+    const getId = (url) => {
+        return parseInt(url.match(/\d+/g).map(Number)[0]);
+    };
+
     useEffect(() => {
-        requestFilms();
+        if(!storeFilms.length){
+            requestFilms();
+        }
     }, []);
 
     return (
@@ -30,8 +40,8 @@ export default function SectionFilms() {
 
             <div className="container-cards">
 
-                {films ? films.map(film => (
-                    <CardFilm key={film.episode_id} item={film}></CardFilm>
+                {storeFilms.length ? storeFilms.map(film => (
+                    <CardFilm key={film.episode_id} item={film} id={getId(film.url)}></CardFilm>
                 )) : null}
 
             </div>
@@ -40,3 +50,13 @@ export default function SectionFilms() {
 
     )
 }
+
+const mapStateToProps = (state) => {
+    return { storeFilms: state.films }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { setFilms: (films) => dispatch(setFilms(films)) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SectionFilms);

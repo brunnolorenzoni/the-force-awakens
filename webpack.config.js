@@ -7,7 +7,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'js/index_bundle.js',
+        filename:   'js/index_bundle.js',
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -28,8 +29,10 @@ module.exports = {
     },
     mode: 'development',
     devServer: {
-        historyApiFallback: true,
-    },
+        historyApiFallback: {
+            index:'/index.html'
+        }
+	},
     devtool: 'source-map',
     plugins: [
         new HtmlWebpackPlugin({
