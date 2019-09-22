@@ -18,4 +18,4 @@ import MenuNavigation from "./MenuNavigation/MenuNavigation";
     )
 }
 
-export default Header();
+export default Header;

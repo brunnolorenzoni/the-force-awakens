@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import Header from "../../components/Header/Header";
-import SectionFilms from "../../components/SectionFilms/SectionFilms";
+import Header from '../../components/Header/Header';
+import SectionFilms from '../../components/SectionFilms/SectionFilms';
 
 const Home = () => {
 
@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <>
             <Header />
-            <main className="main-wrapper" style={{paddingTop: heightHeader}}>
+            <main className='main-wrapper' style={{paddingTop: heightHeader}}>
                 <SectionFilms/>
             </main>
         </>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Starships() {
+const Starships = () => {
 
-    return (
-        <h1>Starships!</h1>
-    )
+    return (<h1>Em desenvolvimento</h1>)
 }
+
+export default Starships;
