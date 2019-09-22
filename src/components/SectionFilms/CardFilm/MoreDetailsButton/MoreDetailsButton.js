@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function MoreDetailsButton(props) {
+const MoreDetailsButton = (props) => {
 
     const { id } = props
 
@@ -15,3 +15,5 @@ export default function MoreDetailsButton(props) {
         </div>
     )
 }
+
+export default MoreDetailsButton;

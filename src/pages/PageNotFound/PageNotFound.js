@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function PageNotFound() {
+const PageNotFound = () => {
 
-    return (
-        <h1>Page not Found!</h1>
-    )
+    return (<></>)
 }
+
+export default PageNotFound();

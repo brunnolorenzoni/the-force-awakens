@@ -1,13 +1,11 @@
 import React from 'react';
 
-export default function Synopsis(props) {
+const Synopsis = (props) => {
 
     const { text } = props;
 
-    function formatText(text)
-    {
+    const formatText = (text) => {
         return (text.length > 80) ? (text.substring(0, 80) + "...") : text;
-
     }
 
     return (
@@ -18,3 +16,5 @@ export default function Synopsis(props) {
         </div>
     )
 }
+
+export default Synopsis;

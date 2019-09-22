@@ -6,7 +6,7 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-export default function SocialMediaBar() {
+const SocialMediaBar = () => {
 
     return (
         <nav id="social-media-bar">
@@ -24,3 +24,5 @@ export default function SocialMediaBar() {
         </nav>
     )
 }
+
+export default SocialMediaBar;

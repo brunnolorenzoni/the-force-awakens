@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function TitleFilm(props) {
+const TitleFilm = (props) => {
 
     const {title} = props
 
@@ -11,3 +11,5 @@ export default function TitleFilm(props) {
         </h2> 
     )
 }
+
+export default TitleFilm;

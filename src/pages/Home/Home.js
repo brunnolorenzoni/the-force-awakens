@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header/Header";
 import SectionFilms from "../../components/SectionFilms/SectionFilms";
 
-export default function Home() {
+const Home = () => {
 
     const [heightHeader, setheightHeader] = useState(0);
 
@@ -16,10 +16,10 @@ export default function Home() {
         <>
             <Header />
             <main className="main-wrapper" style={{paddingTop: heightHeader}}>
-
                 <SectionFilms/>
-                
             </main>
         </>
     )
 }
+
+export default Home;

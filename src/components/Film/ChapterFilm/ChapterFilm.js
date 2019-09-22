@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import RomanNumeral from 'js-roman-numerals';
 
-export default function ChapterFilm(props) {
+const ChapterFilm = (props) => {
 
     const {episode_id} = props
 
@@ -13,3 +13,5 @@ export default function ChapterFilm(props) {
         </h3> 
     )
 }
+
+export default ChapterFilm;
