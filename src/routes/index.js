@@ -13,7 +13,7 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 
 const Routes = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/">
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/films/:id?' component={Films} />
