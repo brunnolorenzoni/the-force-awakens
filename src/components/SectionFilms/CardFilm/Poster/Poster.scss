@@ -1,0 +1,23 @@
+.poster-container{
+
+    display:    block;
+    float:      left;
+    width:      100%;
+
+    margin-bottom: 15px;
+
+    .poster-image{
+        display:        block;
+        height:         180px;
+        width:          100%;
+        object-fit:     cover;
+        object-position: center;
+
+        @media all and (min-width: $breakpointSmall){
+            height:         250px;
+        }
+
+
+    }
+
+}

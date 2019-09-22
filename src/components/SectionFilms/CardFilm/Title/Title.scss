@@ -1,0 +1,16 @@
+.card {
+    .title-film{
+        font-size:  18px;
+        font-weight: 700;
+        padding:    0px 8px;
+        font-family: "News Cycle", sans-serif;
+        float: left;
+        width: 100%;
+        color: #000;
+        margin-bottom: 3px;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:  22px;
+        }
+    }
+}

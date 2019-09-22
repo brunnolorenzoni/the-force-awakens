@@ -1,0 +1,21 @@
+#link-title {
+    width: calc(100% - 45px);
+    float: right;
+
+    @media all and (min-width: $breakpointSmall){
+        float: left;
+        width: 100%;
+    }
+
+    #main-title {
+        color:          #afafaf;
+        font-weight:    700;
+        font-size:      20px;
+        text-align:     center;
+        display:        block;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:   32px;
+        }
+    }
+}

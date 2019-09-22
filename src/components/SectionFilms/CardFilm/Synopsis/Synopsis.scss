@@ -1,0 +1,17 @@
+.synopsis-container{
+
+    display:        block;
+    float:          left;
+    padding:        0px 8px;
+    width:          100%;
+    margin-bottom:  20px;
+
+    .synopsis-text{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+
+    }
+
+}

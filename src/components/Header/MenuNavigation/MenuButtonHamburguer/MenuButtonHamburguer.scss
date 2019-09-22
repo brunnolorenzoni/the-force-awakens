@@ -1,0 +1,19 @@
+#btn-menu{
+    background:     transparent;
+    cursor:         pointer;    
+    padding:        5px;
+    height:         40px;
+    width:          40px;
+    float:          left;
+
+    @media all and (min-width: $breakpointSmall){
+        display: none;
+    }
+
+
+    svg{
+        color: #fff;
+        height: auto;
+    }
+
+}

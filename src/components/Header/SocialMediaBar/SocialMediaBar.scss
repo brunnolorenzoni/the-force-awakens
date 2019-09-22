@@ -1,0 +1,38 @@
+#social-media-bar {
+    float:      left;
+    width:      100%;
+    padding:    8px 0px 4px 0px;
+    text-align: center;
+
+    .link {
+
+        margin: auto 8px;
+
+        .icon{
+            color: #afafaf;
+
+            -webkit-transition: all 333ms;
+            -moz-transition: all 333ms;
+            -o-transition: all 333ms;
+            transition: all 333ms;
+
+            &:hover {
+                color: #6f6f6f;
+            }
+        }
+    }
+
+    @media all and (min-width: $breakpointSmall){
+
+        padding: 12px 0px;
+
+        .link {
+            margin: auto 16px;
+
+        }
+
+    }
+
+    
+
+}

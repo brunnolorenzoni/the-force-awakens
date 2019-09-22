@@ -1,0 +1,17 @@
+#header-wrapper {
+
+    background:     #222;
+    float:          left;
+    padding:        8px;
+    position:       fixed;
+    text-align:     left;
+    width:          100%;
+
+    @media all and (min-width: $breakpointSmall){
+        display:    block;
+        height:     auto;
+        padding:    16px 0px 0px 0px;
+    }
+
+    
+}

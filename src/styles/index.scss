@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle:400,700');
+
+@import './breakpoints';
+
+@import '../components/style.scss';
+
+*{
+    margin:     0;
+    padding:    0;
+    border:     none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+.main-wrapper {
+    display:    block;
+    float:      left;
+    width:      100%;
+}

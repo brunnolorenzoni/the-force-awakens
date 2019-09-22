@@ -1,0 +1,34 @@
+.article-film{
+    padding: 8px;
+
+    max-width: 1024px;
+    margin: 30px auto;
+    width: 100%;
+
+    @media all and (min-width: $breakpointSmall){
+        padding:    16px;
+    }
+
+    .synopsis{
+
+        width: 100%;
+        max-width: 600px;
+
+        font-size: 14px;
+        line-height: 20px;
+        margin: 20px auto;
+
+        text-align: center;
+        font-family: "News Cycle", sans-serif;
+
+        @media all and (min-width: $breakpointSmall){
+            font-size:    16px;
+            line-height: 24px;        
+        }
+    }
+
+    .nav-section{
+        margin-top: 60px;
+    }
+
+}

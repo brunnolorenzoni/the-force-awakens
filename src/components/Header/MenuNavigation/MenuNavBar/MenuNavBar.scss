@@ -1,0 +1,54 @@
+#nav-menu{
+    visibility: hidden;
+    position:   absolute;
+    width:      100%;
+    left:       -100%;
+    top:        0;
+
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+
+    -webkit-transition: all 333ms;
+    -moz-transition: all 333ms;
+    -o-transition: all 333ms;
+    transition: all 333ms;
+
+    .list-menu{
+        display:    block;
+        float:      left;
+        width:      100%;
+    }
+
+    @media all and (min-width: $breakpointSmall){
+
+        display:        block;
+        float:          left;
+        left:           unset;
+        margin-top:     20px;
+        position:       static;
+        top:            unset;
+        visibility:     visible;
+
+        .list-menu{
+            display:    block;
+            width:      100%;
+            max-width:  1024px;
+            margin:     auto;
+            float:      unset;
+
+        }
+
+    }
+
+}
+
+#nav-menu.show{
+
+    visibility:     visible;
+    width:          100%;
+    height:         100vh;
+    background:     #222;
+    left:           0;
+    padding:        16px;  
+
+}
