@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "the-force-awakens",
   "version": "1.0.0",
   "description": "Front-end UI Test",

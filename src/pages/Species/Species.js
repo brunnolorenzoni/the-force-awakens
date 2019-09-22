@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default function Species() {
+ const Species = () => {
 
     return (
-        <h1>Species!</h1>
+        <></>
     )
 }
+
+export default Species;

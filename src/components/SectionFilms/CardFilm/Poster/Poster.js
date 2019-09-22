@@ -2,12 +2,11 @@ import React from 'react';
 
 import accents from 'remove-accents'; 
 
-export default function Poster(props) {
+const Poster = (props) => {
 
     const { image_name } = props;
 
-    function formatImageName(image_name)
-    {
+    const formatImageName = (image_name) => {
         return accents.remove(image_name).replace(/ /g, "-").replace(/_/g, "-").trim().toLowerCase();
     }
 
@@ -17,3 +16,5 @@ export default function Poster(props) {
         </div>
     )
 }
+
+export default Poster;

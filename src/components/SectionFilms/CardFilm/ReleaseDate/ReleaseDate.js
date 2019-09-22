@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ReleaseDate(props) {
+const ReleaseDate = (props) => {
 
     const { date } = props;
 
@@ -10,3 +10,5 @@ export default function ReleaseDate(props) {
         </div>
     )
 }
+
+export default ReleaseDate;

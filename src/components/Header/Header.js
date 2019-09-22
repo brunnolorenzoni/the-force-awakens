@@ -4,7 +4,7 @@ import TitleHeader from "./TitleHeader/TitleHeader";
 import SocialMediaBar from "./SocialMediaBar/SocialMediaBar";
 import MenuNavigation from "./MenuNavigation/MenuNavigation";
 
-export default function Header() {
+ const Header = () => {
 
     return (
         <>
@@ -17,3 +17,5 @@ export default function Header() {
         </>
     )
 }
+
+export default Header();

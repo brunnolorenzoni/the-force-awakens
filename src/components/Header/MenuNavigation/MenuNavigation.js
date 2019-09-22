@@ -8,16 +8,14 @@ import MenuButtonHamburguer from "./MenuButtonHamburguer/MenuButtonHamburguer";
 import { disableScroll, enableScroll } from "../../../utils/controlScroll";
 
 
-export default function MenuNavigation() {
+const MenuNavigation = () => {
 
     const [showMenu, setShowMenu] = useState(false)
 
-    function handleClick()
-    {
+    const handleClick = () => {
         if(window.innerWidth < 768){
             setShowMenu(!showMenu);
         }
-        
     }
 
     useEffect(() => {
@@ -39,3 +37,6 @@ export default function MenuNavigation() {
         </>
     )
 }
+
+
+export default MenuNavigation;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export default function TitleHeader() {
+const TitleHeader = () => {
 
 
     return (
@@ -12,3 +12,5 @@ export default function TitleHeader() {
         </>
     )
 }
+
+export default TitleHeader;

@@ -1,7 +1,7 @@
 import React from 'react';
 import RomanNumeral from 'js-roman-numerals';
 
-export default function Title(props) {
+const Title = (props) => {
 
     const { title, episode } = props;
 
@@ -12,3 +12,5 @@ export default function Title(props) {
         </h3>
     )
 }
+
+export default Title;

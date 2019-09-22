@@ -2,7 +2,7 @@ import React from 'react';
 
 import ItemList from "./ItemList/ItemList"
 
-export default function NavList(props) {
+const NavList = (props) => {
 
    const { color, data, href, title } = props;
 
@@ -25,3 +25,5 @@ export default function NavList(props) {
         
     )
 }
+
+export default NavList;

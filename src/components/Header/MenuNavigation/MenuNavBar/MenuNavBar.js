@@ -9,7 +9,7 @@ import { faCarSide } from '@fortawesome/free-solid-svg-icons'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faDna } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuNavBar(props) {
+const MenuNavBar = (props) => {
 
     const { show, parentListener } = props;
 
@@ -26,3 +26,5 @@ export default function MenuNavBar(props) {
         </nav>
     )
 }
+
+export default MenuNavBar;

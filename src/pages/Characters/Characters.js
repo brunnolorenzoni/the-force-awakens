@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Characters() {
+const Characters = () => {
 
-    return (
-        <h1>Characters</h1>
-    )
+    return (<></>)
 }
+
+export default Characters;
