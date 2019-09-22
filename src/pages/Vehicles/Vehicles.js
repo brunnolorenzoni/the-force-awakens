@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Vehicles() {
+const Vehicles = () => {
 
-    return (
-        <h1>Vehicles!</h1>
-    )
+    return (<h1>Em desenvolvimento</h1>)
 }
+
+export default Vehicles;

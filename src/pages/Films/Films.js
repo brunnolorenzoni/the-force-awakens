@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import Header from "../../components/Header/Header";
-import SectionFilms from "../../components/SectionFilms/SectionFilms";
-import Film from "../../components/Film/Film";
+import Header from '../../components/Header/Header';
+import SectionFilms from '../../components/SectionFilms/SectionFilms';
+import Film from '../../components/Film/Film';
 
 
  const Films = (props) => {
@@ -22,13 +22,13 @@ import Film from "../../components/Film/Film";
             {
                 hasIdFilm ? 
 
-                <main className="main-wrapper" style={{paddingTop: heightHeader}}>
+                <main className='main-wrapper' style={{paddingTop: heightHeader}}>
                     <Film id_film={hasIdFilm} /> 
                 </main>
                 
                 : 
 
-                <main className="main-wrapper" style={{paddingTop: heightHeader}}>
+                <main className='main-wrapper' style={{paddingTop: heightHeader}}>
                     <SectionFilms/>
                 </main>
             }

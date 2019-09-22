@@ -2,9 +2,7 @@ import React from 'react';
 
 const Planets = () => {
 
-    return (
-        <></>
-    )
+    return (<h1>Em desenvolvimento</h1>)
 }
 
-export default Planets();
+export default Planets;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const PageNotFound = () => {
 
-    return (<></>)
+    return (<h1>Em desenvolvimento</h1>)
 }
 
-export default PageNotFound();
+export default PageNotFound;
